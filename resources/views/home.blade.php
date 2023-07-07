@@ -14,6 +14,7 @@
         <button>Log out</button>
     </form>
 
+    
     <div>
         <h2>Create a New Post</h2>
         <form action="/create-post" method="POST">
@@ -23,6 +24,17 @@
         <button>Save Post</button>
         </form>
     </div>
+    
+    <div>
+        <h2>All Posts</h2>
+        @foreach($posts as $post)
+            <div style="background-color:rgb(215, 215, 215); padding:10px; margin:10px;">
+                <h3>{{$post['title']}}</h3>
+                {{$post['body']}}
+            </div>
+        @endforeach
+    </div>
+
     @else
     <div>
         <h2>Register</h2>
