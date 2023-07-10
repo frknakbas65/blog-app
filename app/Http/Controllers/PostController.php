@@ -13,7 +13,7 @@ class PostController extends Controller
         }
         return redirect('/');
     }
-    public function actuallyUpdatePost(Post $post, Request $request){
+    public function updatePost(Post $post, Request $request){
         if(auth()->user()->id !== $post['user_id']){
             return redirect('/');
         }
