@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @vite('resources/css/app.css')
     <title>Document</title>
 </head>
 <body>  
@@ -20,22 +21,23 @@
         <form action="/create-post" method="POST">
         @csrf
         <input type="text" name="title" placeholder="post title">
-        <textarea name="body" placeholder="body content"></textarea>
+        <textarea class="" name="body" placeholder="body content"></textarea>
         <button>Save Post</button>
         </form>
     </div>
     
     <div>
-        <h2>All Posts</h2>
+        <h2 class="font-semibold text-2xl  text-sky-900 " >All Posts</h2>
         @foreach($posts as $post)
             <div style="background-color:rgb(215, 215, 215); padding:10px; margin:10px;">
-                <h3>{{$post['title']}} by {{$post->user->name}}</h3>
+                <h3>{{$post['title']}}</h3>
+                <h4 style="float:right; margin-right: 20px; margin-top: 50px;">  by {{$post->user->name}}</h4>
                 {{$post['body']}}
                 <p><a href="/edit-post/{{$post->id}}">Edit</a></p>
                 <form action="/delete-post/{{$post->id}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button>Delete</button>
+                    <button >Delete</button>
                 </form>
             </div>
         @endforeach
