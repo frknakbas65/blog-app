@@ -12,7 +12,9 @@
     <p> You are logged in.</p>
     <form action="/logout" method="POST"> 
         @csrf
-        <button>Log out</button>
+        <button type="button" class="bg-blue-400 hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 active:bg-blue-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
+            Log out
+          </button>
     </form>
 
     
